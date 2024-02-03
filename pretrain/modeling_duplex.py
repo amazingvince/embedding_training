@@ -97,7 +97,7 @@ class DupMAEForPretraining(nn.Module):
             cls_hiddens, decoder_input_ids, decoder_attention_mask, decoder_labels
         )
 
-        ot_embedding = self.sparse_embedding(
+        ot_embedding = self.ot_embedding(
             lm_out.logits[:, 1:], encoder_attention_mask[:, 1:]
         )
         bow_loss = self.decoder_ot_loss(ot_embedding, bag_word_weight=bag_word_weight)

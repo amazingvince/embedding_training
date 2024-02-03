@@ -21,7 +21,7 @@ class DatasetForPretraining(torch.utils.data.Dataset):
 
 @dataclass
 class DupMAECollator(DataCollatorForWholeWordMask):
-    max_seq_length: int = 4096
+    max_seq_length: int = 1024
     encoder_mlm_probability: float = 0.15
     decoder_mlm_probability: float = 0.15
 

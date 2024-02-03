@@ -23,7 +23,7 @@ TOKENIZER_NAME="bert-base-uncased"
 CONFIG_NAME="config.json"
 DATASET_TAG="JeanKaddour/minipile"
 DATASET_CFG="default"
-MAX_SOURCE_LEN=4096
+MAX_SOURCE_LEN=1024
 
 
 SHORT_NAME="$(basename $HF_MODEL_TAG)"
@@ -35,8 +35,8 @@ LOGGING_DIR="$RUNTIME_DIR/logs"
 RUN_SEED=$RANDOM
 
 NUM_EPOCHS=1
-BATCH_SIZE=1
-EVAL_BATCH_SIZE=1
+BATCH_SIZE=16
+EVAL_BATCH_SIZE=16
 WARMUP_STEPS=100
 WEIGHT_DECAY=0.01
 
@@ -120,7 +120,7 @@ ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 1 ./run_mlm.py \
     --warmup_steps $WARMUP_STEPS \
     --weight_decay $WEIGHT_DECAY \
     $DATA_TYPE \
-    --torch_compile_backend inductor \
+    # --torch_compile_backend inductor \
 
 
 # --whole_word_mask \
