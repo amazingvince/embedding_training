@@ -9,6 +9,7 @@ pip install -r requirments.txt
 wandb login
 huggingface-cli login
 chmod +x run_pretraining.sh
+accelerate config
 ```
 
 # runpod
