@@ -8,6 +8,7 @@ Lots of code lifted from https://github.com/staoxiao/RetroMAE for pretraining. U
 pip install -r requirments.txt
 wandb login
 huggingface-cli login
+chmod +x run_pretraining.sh
 ```
 
 # runpod
