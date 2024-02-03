@@ -4,3 +4,4 @@ accelerate
 wandb
 pytorch-custom-utils
 beartype
+evaluate
