@@ -1,0 +1,6 @@
+transformers
+datasets
+accelerate
+wandb
+pytorch-custom-utils
+beartype

@@ -19,7 +19,7 @@ echo "Number of workers: $NUM_WORKERS"
 
 # Script arguments
 HF_MODEL_TAG="amazingvince/bert_DupMAE"
-TOKENIZER_NAME="bert-base-uncased"
+TOKENIZER_NAME="BEE-spoke-data/cl100k_base-mlm"
 CONFIG_NAME="config.json"
 DATASET_TAG="JeanKaddour/minipile"
 DATASET_CFG="default"
@@ -46,7 +46,7 @@ OPTIMIZER_ID="adamw_torch_fused" #paged_adamw_32bit" # "paged_adamw_32bit"
 BETA1=0.90
 BETA2=0.99
 ADAM_EPS=1e-8
-LR_SCHEDULER_TYPE="inverse_sqrt"
+LR_SCHEDULER_TYPE="cosine"
 LEARNING_RATE=2.5e-4
 MAX_GRAD_NORM=1.0
 GC_STEPS=2
