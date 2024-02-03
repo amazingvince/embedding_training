@@ -42,7 +42,6 @@ from transformers import (
     MODEL_FOR_MASKED_LM_MAPPING,
     AutoConfig,
     AutoTokenizer,
-    DataCollatorForLanguageModeling,
     HfArgumentParser,
     Trainer,
     TrainingArguments,
@@ -53,7 +52,7 @@ from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils.versions import require_version
 
 
-from pretrain.data import DupMAECollator
+from pretrain.data import DupMAECollator, DupMAECollator_Roberta
 from pretrain.modeling_duplex import DupMAEForPretraining
 
 
@@ -495,6 +494,7 @@ def main():
     tokenizer_kwargs = {
         "cache_dir": model_args.cache_dir,
         "use_fast": model_args.use_fast_tokenizer,
+        # "revision": "regex-split",
         "revision": model_args.model_revision,
         "token": model_args.token,
         "trust_remote_code": model_args.trust_remote_code,
@@ -716,7 +716,15 @@ def main():
         and not data_args.pad_to_max_length
     )
 
-    data_collator = DupMAECollator(
+    # data_collator = DupMAECollator(
+    #     tokenizer=tokenizer,
+    #     encoder_mlm_probability=data_args.encoder_mlm_probability,
+    #     decoder_mlm_probability=data_args.decoder_mlm_probability,
+    #     max_seq_length=data_args.max_seq_length,
+    #     pad_to_multiple_of=8 if pad_to_multiple_of_8 else None,
+    # )
+
+    data_collator = DupMAECollator_Roberta(
         tokenizer=tokenizer,
         encoder_mlm_probability=data_args.encoder_mlm_probability,
         decoder_mlm_probability=data_args.decoder_mlm_probability,
@@ -724,7 +732,7 @@ def main():
         pad_to_multiple_of=8 if pad_to_multiple_of_8 else None,
     )
     # print(train_dataset[0])
-    # print(data_collator(train_dataset.select(range(8))))
+    print(data_collator(train_dataset.select(range(1))))
 
     # Initialize our Trainer
     trainer = Trainer(

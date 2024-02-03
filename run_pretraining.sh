@@ -18,9 +18,10 @@ fi
 echo "Number of workers: $NUM_WORKERS"
 
 # Script arguments
-HF_MODEL_TAG="amazingvince/bert_DupMAE"
+HF_MODEL_TAG="amazingvince/bert-DupMAE-tiktoken"
 TOKENIZER_NAME="BEE-spoke-data/cl100k_base-mlm"
-CONFIG_NAME="config.json"
+# TOKENIZER_NAME="bert-base-uncased"
+CONFIG_NAME="config_tik.json"
 DATASET_TAG="JeanKaddour/minipile"
 DATASET_CFG="default"
 MAX_SOURCE_LEN=1024
@@ -29,14 +30,14 @@ MAX_SOURCE_LEN=1024
 SHORT_NAME="$(basename $HF_MODEL_TAG)"
 DS_SHORT_NAME="$(basename $DATASET_TAG)"
 MASK_RATIO=0.25
-RUN_NAME="$SHORT_NAME-${DS_SHORT_NAME}_${MAX_SOURCE_LEN}-vN"
+RUN_NAME="$SHORT_NAME-${DS_SHORT_NAME}_${MAX_SOURCE_LEN}-v1"
 RUNTIME_DIR="./runtime/masked/outputs-$RUN_NAME"
 LOGGING_DIR="$RUNTIME_DIR/logs"
 RUN_SEED=$RANDOM
 
-NUM_EPOCHS=1
-BATCH_SIZE=8
-EVAL_BATCH_SIZE=8
+NUM_EPOCHS=2
+BATCH_SIZE=2
+EVAL_BATCH_SIZE=1
 WARMUP_STEPS=100
 WEIGHT_DECAY=0.01
 
@@ -49,7 +50,7 @@ ADAM_EPS=1e-8
 LR_SCHEDULER_TYPE="cosine"
 LEARNING_RATE=2.5e-4
 MAX_GRAD_NORM=1.0
-GC_STEPS=2
+GC_STEPS=8
 GRAD_CHKPTING=False
 
 # Checkpointing and logging
@@ -80,7 +81,7 @@ mkdir -p $RUNTIME_DIR $LOGGING_DIR
 
 
 # Train
-ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 1 ./run_pretraining_mlm.py \
+ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 2 ./run_pretraining_mlm.py \
     --config_name $CONFIG_NAME \
     --tokenizer_name $TOKENIZER_NAME \
     --dataset_name "$DATASET_TAG" \
