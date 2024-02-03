@@ -80,7 +80,7 @@ mkdir -p $RUNTIME_DIR $LOGGING_DIR
 
 
 # Train
-ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 1 ./run_mlm.py \
+ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 1 ./run_pretraining_mlm.py \
     --config_name $CONFIG_NAME \
     --tokenizer_name $TOKENIZER_NAME \
     --dataset_name "$DATASET_TAG" \
