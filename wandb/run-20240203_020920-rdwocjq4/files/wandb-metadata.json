@@ -1,0 +1,303 @@
+{
+    "os": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.31",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-02-03T07:09:21.631843",
+    "startedAt": "2024-02-03T07:09:20.972026",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config_name",
+        "config.json",
+        "--tokenizer_name",
+        "bert-base-uncased",
+        "--dataset_name",
+        "JeanKaddour/minipile",
+        "--dataset_config_name",
+        "default",
+        "--do_train",
+        "--do_eval",
+        "--save_strategy",
+        "steps",
+        "--evaluation_strategy",
+        "steps",
+        "--eval_steps",
+        "150",
+        "--max_eval_samples",
+        "300",
+        "--dataloader_drop_last",
+        "False",
+        "--dataloader_num_workers",
+        "32",
+        "--dataloader_pin_memory",
+        "True",
+        "--gradient_checkpointing",
+        "False",
+        "--hub_model_id",
+        "bert_DupMAE-minipile_4096-vN",
+        "--hub_strategy",
+        "every_save",
+        "--hub_private_repo",
+        "True",
+        "--learning_rate",
+        "2.5e-4",
+        "--load_best_model_at_end",
+        "False",
+        "--logging_dir",
+        "./runtime/masked/outputs-bert_DupMAE-minipile_4096-vN",
+        "--logging_steps",
+        "5",
+        "--lr_scheduler_type",
+        "inverse_sqrt",
+        "--max_grad_norm",
+        "1.0",
+        "--max_seq_length",
+        "4096",
+        "--mlm_probability",
+        "0.25",
+        "--num_train_epochs",
+        "1",
+        "--optim",
+        "adamw_torch_fused",
+        "--adam_epsilon",
+        "1e-8",
+        "--adam_beta2",
+        "0.99",
+        "--output_dir",
+        "./runtime/masked/outputs-bert_DupMAE-minipile_4096-vN",
+        "--overwrite_output_dir",
+        "--per_device_eval_batch_size",
+        "8",
+        "--per_device_train_batch_size",
+        "8",
+        "--prediction_loss_only",
+        "False",
+        "--preprocessing_num_workers",
+        "32",
+        "--push_to_hub",
+        "--save_safetensors",
+        "--report_to",
+        "wandb",
+        "--run_name",
+        "bert_DupMAE-minipile_4096-vN",
+        "--save_steps",
+        "100",
+        "--save_total_limit",
+        "1",
+        "--seed",
+        "13796",
+        "--tf32",
+        "True",
+        "--warmup_steps",
+        "100",
+        "--weight_decay",
+        "0.01",
+        "--bf16",
+        "--bf16_full_eval",
+        "False",
+        "--torch_compile_backend",
+        "inductor"
+    ],
+    "state": "running",
+    "program": "/home/vince/embedding_training/./run_mlm.py",
+    "codePathLocal": "run_mlm.py",
+    "codePath": "run_mlm.py",
+    "git": {
+        "remote": "https://github.com/amazingvince/embedding_training.git",
+        "commit": "731213fc85e9e8a77b65474b01cd304b8933c58e"
+    },
+    "email": "amazingvince@gmail.com",
+    "root": "/home/vince/embedding_training",
+    "host": "VincentPC",
+    "username": "vince",
+    "executable": "/home/vince/miniconda3/envs/distil/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 4491.471999999999,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 4491.472,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 933.6527671813965
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        },
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 110.04474639892578
+    }
+}

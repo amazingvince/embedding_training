@@ -1,0 +1,38 @@
+  0%|                                                                                                                                                                                                                                                    | 0/190576 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/vince/embedding_training/./run_mlm.py", line 816, in <module>
+    main()
+  File "/home/vince/embedding_training/./run_mlm.py", line 754, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/transformers/trainer.py", line 1552, in train
+    return inner_training_loop(
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/transformers/trainer.py", line 1858, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/accelerate/data_loader.py", line 451, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+IndexError: Caught IndexError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2804, in __getitems__
+    batch = self.__getitem__(keys)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2800, in __getitem__
+    return self._getitem(key)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2784, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 583, in query_table
+    _check_valid_index_key(key, size)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 536, in _check_valid_index_key
+    _check_valid_index_key(int(max(key)), size=size)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 526, in _check_valid_index_key
+    raise IndexError(f"Invalid key: {key} is out of bounds for size {size}")
+IndexError: Invalid key: 3030443 is out of bounds for size 0

@@ -1,0 +1,97 @@
+
+
+  0%|                                                                                                                                                                                                                                                    | 0/380699 [00:00<?, ?it/s][rank0]:[2024-02-03 03:39:11,490] [0/0] torch._dynamo.variables.torch: [WARNING] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+Traceback (most recent call last):
+  File "/home/vince/embedding_training/./run_mlm.py", line 826, in <module>
+    main()
+  File "/home/vince/embedding_training/./run_mlm.py", line 764, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/transformers/trainer.py", line 1530, in train
+    return inner_training_loop(
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/transformers/trainer.py", line 1869, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
+    outputs = model(**inputs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 489, in _fn
+    return fn(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1523, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1359, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/accelerate/utils/operations.py", line 687, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/accelerate/utils/operations.py", line 675, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/vince/embedding_training/pretrain/modeling_duplex.py", line 75, in forward
+    def forward(
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 489, in _fn
+    return fn(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/fx/graph_module.py", line 738, in call_wrapped
+    return self._wrapped_call(self, *args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/fx/graph_module.py", line 317, in __call__
+    raise e
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/fx/graph_module.py", line 304, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<eval_with_key>.253", line 25, in forward
+    submod_5 = self.compiled_submod_5(getitem_9, getitem_1);  getitem_9 = None
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_dynamo/backends/distributed.py", line 356, in forward
+    x = self.submod(*args)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 489, in _fn
+    return fn(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/aot_autograd.py", line 901, in forward
+    return compiled_fn(full_args)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 81, in g
+    return f(*args)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 83, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 105, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 81, in g
+    return f(*args)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/autograd/function.py", line 553, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/jit_compile_runtime_wrappers.py", line 408, in forward
+    fw_outs = call_func_at_runtime_with_args(
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 105, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 864, in __call__
+    return self.get_current_callable()(inputs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_inductor/compile_fx.py", line 611, in run
+    return model(new_inputs)
+  File "/home/vince/miniconda3/envs/distil/lib/python3.10/site-packages/torch/_inductor/codecache.py", line 892, in _run_from_cache
+    return compiled_graph.compiled_artifact(inputs)
+  File "/tmp/torchinductor_vince/rj/crjexbcyh3qceogjnwkhs4kgzem7dphbb2he5vaddvcdk7fqrsxp.py", line 632, in call
+    buf31 = empty((1, 12, 4096, 4096), device='cuda', dtype=torch.float32)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB. GPU 0 has a total capacity of 23.99 GiB of which 0 bytes is free. Of the allocated memory 22.61 GiB is allocated by PyTorch, and 195.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
