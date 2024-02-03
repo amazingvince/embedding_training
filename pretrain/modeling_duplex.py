@@ -7,10 +7,14 @@ from pretrain.enhancedDecoder import BertLayerForDecoder
 from torch import nn
 from transformers import BertForMaskedLM, AutoModelForMaskedLM
 from transformers.modeling_outputs import MaskedLMOutput
+from pytorch_custom_utils import save_load, module_device
+
 
 logger = logging.getLogger(__name__)
 
 
+@save_load()
+@module_device()
 class DupMAEForPretraining(nn.Module):
     def __init__(
         self,

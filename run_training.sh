@@ -35,8 +35,8 @@ LOGGING_DIR="$RUNTIME_DIR/logs"
 RUN_SEED=$RANDOM
 
 NUM_EPOCHS=1
-BATCH_SIZE=16
-EVAL_BATCH_SIZE=16
+BATCH_SIZE=8
+EVAL_BATCH_SIZE=8
 WARMUP_STEPS=100
 WEIGHT_DECAY=0.01
 
@@ -49,7 +49,7 @@ ADAM_EPS=1e-8
 LR_SCHEDULER_TYPE="inverse_sqrt"
 LEARNING_RATE=2.5e-4
 MAX_GRAD_NORM=1.0
-GC_STEPS=16
+GC_STEPS=2
 GRAD_CHKPTING=False
 
 # Checkpointing and logging
@@ -59,7 +59,7 @@ MAX_EVAL_SAMPLES=300
 
 LOGGING_STEPS=5
 SAVE_STRATEGY="steps"
-CHK_STEPS=100
+CHK_STEPS=1000
 SAVE_LIMIT=1
 REPORT_TO="wandb"
 
@@ -74,6 +74,10 @@ mkdir -p $RUNTIME_DIR $LOGGING_DIR
 # --config_name 
 #     --model_name_or_path $HF_MODEL_TAG \
 #   --gradient_accumulation_steps $GC_STEPS \
+#      --do_eval \
+#    --evaluation_strategy $EVAL_STRATEGY --eval_steps $EVAL_STEPS \
+
+
 
 # Train
 ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 1 ./run_mlm.py \
@@ -82,14 +86,13 @@ ACCELERATE_LOG_LEVEL=info accelerate launch --num_processes 1 ./run_mlm.py \
     --dataset_name "$DATASET_TAG" \
     --dataset_config_name "$DATASET_CFG" \
     --do_train \
-    --do_eval \
     --save_strategy $SAVE_STRATEGY \
-    --evaluation_strategy $EVAL_STRATEGY --eval_steps $EVAL_STEPS \
     --max_eval_samples $MAX_EVAL_SAMPLES \
     --dataloader_drop_last False \
     --dataloader_num_workers $NUM_WORKERS \
     --dataloader_pin_memory True \
     --gradient_checkpointing $GRAD_CHKPTING \
+    --gradient_accumulation_steps $GC_STEPS \
     --hub_model_id $RUN_NAME --hub_strategy "every_save" \
     --hub_private_repo True \
     --learning_rate $LEARNING_RATE \
